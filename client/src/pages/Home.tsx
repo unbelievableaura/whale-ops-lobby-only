@@ -28,8 +28,7 @@ export default function Home() {
     [siteCopy],
   );
 
-  const BACKGROUND_IMAGE =
-    "/images/hf_20260305_033110_39a3abf0-2e4d-49f5-bb1d-1be11102d17d.jpeg";
+  const BACKGROUND_IMAGE = "/images/intro-bg.png";
 
   // CA bar is shown by default, user can dismiss it
 

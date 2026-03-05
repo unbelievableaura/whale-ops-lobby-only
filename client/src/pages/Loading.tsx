@@ -117,6 +117,33 @@ export default function Loading() {
       {/* Main Content */}
       <div className="relative z-30 w-full h-screen flex flex-col items-center justify-center">
         
+        {/* Nav Links */}
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="flex gap-6 mb-6"
+        >
+          <a
+            href="https://pump.fun"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs sm:text-sm font-bold tracking-[0.3em] text-white/50 hover:text-white transition-colors duration-300"
+            onClick={(e) => e.stopPropagation()}
+          >
+            PUMP.FUN
+          </a>
+          <a
+            href="https://t.me"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs sm:text-sm font-bold tracking-[0.3em] text-white/50 hover:text-white transition-colors duration-300"
+            onClick={(e) => e.stopPropagation()}
+          >
+            COMMUNITY
+          </a>
+        </motion.div>
+
         {/* Title */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -125,11 +152,8 @@ export default function Loading() {
           className="mb-8 text-center w-[90%] mx-auto"
         >
           <div
-            className="w-full max-w-[560px] mx-auto font-black-ops font-black tracking-[0.08em] leading-none text-[56px] sm:text-[72px]"
+            className="w-full max-w-[560px] mx-auto font-black-ops font-black tracking-[0.08em] leading-none text-[56px] sm:text-[72px] text-white"
             style={{
-              background: "linear-gradient(90deg, #dc2626 0%, #ffffff 52%, #2563eb 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
               filter: "drop-shadow(0 0 24px rgba(255,255,255,0.28))",
             }}
           >
