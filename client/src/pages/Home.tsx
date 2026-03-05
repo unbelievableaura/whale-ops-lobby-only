@@ -14,7 +14,7 @@ export default function Home() {
   const [showTrailerModal, setShowTrailerModal] = useState(false);
   const [copiedContract, setCopiedContract] = useState(false);
   const [isPreviewMuted, setIsPreviewMuted] = useState(false);
-  const [previewVolume, setPreviewVolume] = useState(0.7);
+  const [previewVolume, setPreviewVolume] = useState(0.15);
   const trailerModalRef = useRef<HTMLVideoElement>(null);
   const trailerPreviewRef = useRef<HTMLVideoElement>(null);
   const TRAILER_VIDEO = "/images/whitehouse_tweet_2029307088808055083.mp4";
@@ -58,35 +58,40 @@ export default function Home() {
     return () => clearInterval(glitchInterval);
   }, []);
 
+  // Sync mute/volume state to video element
   useEffect(() => {
     const video = trailerPreviewRef.current;
     if (!video) return;
-
     video.muted = isPreviewMuted;
     video.volume = previewVolume;
   }, [isPreviewMuted, previewVolume]);
 
+  // Autoplay muted at 1.1s, then unmute quietly on first interaction
   useEffect(() => {
     const video = trailerPreviewRef.current;
     if (!video) return;
 
-    const tryPlayWithAudio = () => {
+    // Start muted so autoplay is guaranteed by browser policy
+    video.muted = true;
+    video.currentTime = 1.1;
+    void video.play().catch(() => {});
+
+    const unmuteOnInteraction = () => {
       video.muted = isPreviewMuted;
       video.volume = previewVolume;
-      void video.play().catch(() => {
-        // Browser autoplay policies may block unmuted playback until interaction.
-      });
+      void video.play().catch(() => {});
     };
 
-    tryPlayWithAudio();
-    window.addEventListener("pointerdown", tryPlayWithAudio, { once: true });
-    window.addEventListener("keydown", tryPlayWithAudio, { once: true });
+    window.addEventListener("pointerdown", unmuteOnInteraction, { once: true });
+    window.addEventListener("keydown", unmuteOnInteraction, { once: true });
 
     return () => {
-      window.removeEventListener("pointerdown", tryPlayWithAudio);
-      window.removeEventListener("keydown", tryPlayWithAudio);
+      window.removeEventListener("pointerdown", unmuteOnInteraction);
+      window.removeEventListener("keydown", unmuteOnInteraction);
     };
-  }, [isPreviewMuted, previewVolume]);
+  // Run once on mount
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Keyboard Navigation
   useEffect(() => {
