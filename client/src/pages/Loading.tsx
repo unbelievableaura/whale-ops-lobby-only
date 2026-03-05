@@ -68,7 +68,7 @@ export default function Loading() {
         transition={{ duration: 0.05 }}
       >
         <img
-          src="/images/hf_20260305_033110_39a3abf0-2e4d-49f5-bb1d-1be11102d17d.jpeg"
+          src="/images/intro-bg.png"
           alt="RED WHITE & BLUE"
           className="w-full h-full object-cover object-center"
         />
