@@ -179,7 +179,7 @@ export default function Home() {
                   filter: "drop-shadow(0 0 14px rgba(255,255,255,0.28))",
                 }}
               >
-                WORLD WAR 3
+                RED, WHITE & BLUE
               </div>
               <div
                 className="hidden md:block max-w-[760px] font-black-ops font-black tracking-[0.08em] leading-none text-[108px] mt-2"
@@ -190,7 +190,7 @@ export default function Home() {
                   filter: "drop-shadow(0 0 16px rgba(255,255,255,0.28))",
                 }}
               >
-                WORLD WAR 3
+                RED, WHITE & BLUE
               </div>
             </div>
           </div>
