@@ -28,7 +28,7 @@ export default function Home() {
     [siteCopy],
   );
 
-  const BACKGROUND_IMAGE = "/images/intro-bg.png";
+  const BACKGROUND_IMAGE = "/images/lobby-bg.jpeg";
 
   // CA bar is shown by default, user can dismiss it
 
