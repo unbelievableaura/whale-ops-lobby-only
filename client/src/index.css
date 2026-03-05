@@ -1,0 +1,245 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Bank+Gothic+Medium&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&family=Black+Ops+One&display=swap');
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  
+  /* Tactical theme custom colors (subtle U.S.-accent palette) */
+  --color-cod-orange: oklch(0.57 0.19 258);
+  --color-cod-orange-dim: oklch(0.50 0.16 266);
+  --color-cod-gray: oklch(0.60 0 0);
+  --color-cod-green: oklch(0.75 0.15 120);
+  --color-cod-red: oklch(0.57 0.21 21);
+}
+
+html {
+  font-size: 103%; /* Global 3% text size increase */
+}
+
+:root {
+  /* COD Theme Colors */
+  --cod-orange: #2f5dff;
+  --cod-orange-dim: #1f3bb3;
+  --cod-gray: #888888;
+  --cod-dark-bg: rgba(0, 0, 0, 0.85);
+  --cod-green: #9ACD32;
+  --cod-red: #c83543;
+
+  --primary: var(--cod-orange);
+  --primary-foreground: #FFFFFF;
+  --sidebar-primary: var(--cod-orange);
+  --sidebar-primary-foreground: #FFFFFF;
+  --chart-1: var(--cod-orange);
+  --chart-2: var(--cod-orange-dim);
+  --chart-3: var(--cod-gray);
+  --chart-4: #333333;
+  --chart-5: #111111;
+  --radius: 0; /* Sharp edges for tactical look */
+  --background: #0A0A0A;
+  --foreground: #FFFFFF;
+  --card: var(--cod-dark-bg);
+  --card-foreground: #FFFFFF;
+  --popover: var(--cod-dark-bg);
+  --popover-foreground: #FFFFFF;
+  --secondary: #333333;
+  --secondary-foreground: #FFFFFF;
+  --muted: rgba(255, 255, 255, 0.1);
+  --muted-foreground: var(--cod-gray);
+  --accent: var(--cod-orange);
+  --accent-foreground: #FFFFFF;
+  --destructive: #FF0000;
+  --destructive-foreground: #FFFFFF;
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.1);
+  --ring: var(--cod-orange);
+  --sidebar: var(--cod-dark-bg);
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-accent: var(--cod-orange);
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: rgba(255, 255, 255, 0.1);
+  --sidebar-ring: var(--cod-orange);
+}
+
+.dark {
+  /* Same as root since we want dark mode by default */
+  --primary: var(--cod-orange);
+  --primary-foreground: #FFFFFF;
+  --sidebar-primary: var(--cod-orange);
+  --sidebar-primary-foreground: #FFFFFF;
+  --background: #0A0A0A;
+  --foreground: #FFFFFF;
+  --card: var(--cod-dark-bg);
+  --card-foreground: #FFFFFF;
+  --popover: var(--cod-dark-bg);
+  --popover-foreground: #FFFFFF;
+  --secondary: #333333;
+  --secondary-foreground: #FFFFFF;
+  --muted: rgba(255, 255, 255, 0.1);
+  --muted-foreground: var(--cod-gray);
+  --accent: var(--cod-orange);
+  --accent-foreground: #FFFFFF;
+  --destructive: #FF0000;
+  --destructive-foreground: #FFFFFF;
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.1);
+  --ring: var(--cod-orange);
+  --chart-1: var(--cod-orange);
+  --chart-2: var(--cod-orange-dim);
+  --chart-3: var(--cod-gray);
+  --chart-4: #333333;
+  --chart-5: #111111;
+  --sidebar: var(--cod-dark-bg);
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-accent: var(--cod-orange);
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: rgba(255, 255, 255, 0.1);
+  --sidebar-ring: var(--cod-orange);
+}
+
+@layer utilities {
+  .font-bank {
+    font-family: 'Bank Gothic Medium', 'Eurostile', sans-serif;
+  }
+  .font-black-ops {
+    font-family: 'Black Ops One', system-ui;
+  }
+  .font-rajdhani {
+    font-family: 'Rajdhani', sans-serif;
+  }
+  .font-mono-tech {
+    font-family: 'Share Tech Mono', monospace;
+  }
+  .text-shadow-glow {
+    text-shadow: 0 0 10px rgba(47, 93, 255, 0.45);
+  }
+  .text-cod-orange {
+    color: var(--cod-orange);
+  }
+  .text-cod-green {
+    color: var(--cod-green);
+  }
+  .text-cod-red {
+    color: var(--cod-red);
+  }
+  .bg-cod-orange {
+    background-color: var(--cod-orange);
+  }
+  .bg-scanlines {
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0) 50%,
+      rgba(0, 0, 0, 0.2) 50%,
+      rgba(0, 0, 0, 0.2)
+    );
+    background-size: 100% 4px;
+  }
+  .clip-chamfer {
+    clip-path: polygon(
+      10px 0, 100% 0, 
+      100% calc(100% - 10px), calc(100% - 10px) 100%, 
+      0 100%, 0 10px
+    );
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  /**
+   * Custom container utility that centers content and adds responsive padding.
+   *
+   * This overrides Tailwind's default container behavior to:
+   * - Auto-center content (mx-auto)
+   * - Add responsive horizontal padding
+   * - Set max-width for large screens
+   *
+   * Usage: <div className="container">...</div>
+   *
+   * For custom widths, use max-w-* utilities directly:
+   * <div className="max-w-6xl mx-auto px-4">...</div>
+   */
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem; /* 16px - mobile padding */
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem; /* 24px - tablet padding */
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem; /* 32px - desktop padding */
+      padding-right: 2rem;
+      max-width: 1280px; /* Standard content width */
+    }
+  }
+}
