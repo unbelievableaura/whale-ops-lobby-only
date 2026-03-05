@@ -1,8 +1,4 @@
 export interface SiteCopy {
-  loadingPressAnyKey: string;
-  loadingOrClick: string;
-  loadingEntering: string;
-  loadingVersion: string;
   homeMenuStart: string;
   homeStartTooltip: string;
   homeLobbyLabel: string;
@@ -24,10 +20,6 @@ export type SiteCopyField = keyof SiteCopy;
 export const SITE_COPY_STORAGE_KEY = "whale_ops_asset_page_copy";
 
 export const DEFAULT_SITE_COPY: SiteCopy = {
-  loadingPressAnyKey: "PRESS ANY KEY TO ENTER",
-  loadingOrClick: "OR CLICK ANYWHERE",
-  loadingEntering: "ENTERING",
-  loadingVersion: "RED WHITE & BLUE\u2122 v1.0",
   homeMenuStart: "START GAME",
   homeStartTooltip: "COMING SOON",
   homeLobbyLabel: "LOBBY",
